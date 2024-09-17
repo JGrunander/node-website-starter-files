@@ -9,39 +9,27 @@
         body {
             font-family: Arial, sans-serif;
             background: white;
-            color: white; /* Gör all text vit som standard */
-            text-align: center;
-        }
-
-        /* Gör specifika texter synliga i svart */
-        .meal, .date, .time {
-            color: black; /* Svart för mat, datum och tid */
-        }
-
-        /* Grön text */
-        .green {
-            color: green;
-        }
-
-        /* Rosa text */
-        .pink {
-            color: pink;
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         #clock-container {
             position: fixed;
             bottom: 10px;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Orbitron', sans-serif;
-            z-index: 1000;
+            color: black; /* Ändrad färg till svart */
         }
 
         #date-time {
             font-size: 3em;
-            color: black; /* Svart text för tid och datum */
-            margin-left: 20px;
         }
 
         #clock-face {
@@ -59,7 +47,6 @@
             background-color: white;
             width: 100vw;
             height: 100vh;
-            margin-top: 0;
         }
 
         iframe {
@@ -76,10 +63,9 @@
     </div>
 
     <div id="clock-container">
-        <div id="clock-face"></div>
         <div id="date-time">
-            <div id="date" class="date"></div>
-            <div id="time" class="time"></div>
+            <div id="date"></div>
+            <div id="time"></div>
         </div>
     </div>
 
