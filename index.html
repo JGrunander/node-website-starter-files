@@ -13,13 +13,17 @@
             background-size: cover;
             margin: 0;
             color: white;
-            transition: background-color 0.5s ease; /* Smooth transition */
+            transition: background-color 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         #clock-container {
             position: fixed;
             bottom: 10px;
-            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,8 +32,8 @@
         }
 
         #date-time {
-            font-size: 3em; /* Increased size for the date and time */
-            color: #ff4500; /* Changed color to orange-red */
+            font-size: 3em;
+            color: black; /* Changed text color to black */
             margin-left: 20px;
         }
 
@@ -42,14 +46,18 @@
         }
 
         #iframeContainer {
-            width: 100%;
-            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            width: 80%;
+            height: 80%;
             margin-top: 50px;
             display: none;
         }
 
         iframe {
-            width: 80%;
+            width: 100%;
             height: 100%;
             border: none;
         }
@@ -73,31 +81,24 @@
         function updateClock() {
             var date = new Date();
 
-            // Format the date for Swedish locale
             var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             var dateSwedish = new Intl.DateTimeFormat('sv-SV', options).format(date);
 
-            // Capitalize the first letter of the weekday
             dateSwedish = dateSwedish.charAt(0).toUpperCase() + dateSwedish.slice(1);
 
-            // Format the time for Swedish locale
             var timeSwedish = new Intl.DateTimeFormat('sv-SV', { timeStyle: 'medium' }).format(date);
 
-            // Display the formatted date and time
             document.getElementById("date").innerHTML = dateSwedish;
             document.getElementById("time").innerHTML = timeSwedish;
         }
 
-        // Update the clock every second
         setInterval(updateClock, 1000);
 
-        // Function to switch to white background and show iframe
         function showIframe() {
-            document.body.style.background = "white"; // Set entire body background to white
-            document.getElementById('iframeContainer').style.display = 'block'; // Show the iframe
+            document.body.style.background = "white";
+            document.getElementById('iframeContainer').style.display = 'flex';
         }
 
-        // Call function to show iframe and white background after 5 seconds
         setTimeout(showIframe, 5000);
     </script>
 </body>
