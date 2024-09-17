@@ -25,19 +25,11 @@
             justify-content: center;
             align-items: center;
             font-family: 'Orbitron', sans-serif;
-            color: black; /* Ändrad färg till svart */
+            color: black;
         }
 
         #date-time {
             font-size: 3em;
-        }
-
-        #clock-face {
-            width: 200px;
-            height: 200px;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Clock_Classic.png/240px-Clock_Classic.png') no-repeat center center;
-            background-size: contain;
-            margin-right: 20px;
         }
 
         #iframeContainer {
@@ -47,11 +39,14 @@
             background-color: white;
             width: 100vw;
             height: 100vh;
+            overflow: hidden; /* Ensures no unwanted scrollbars */
         }
 
         iframe {
-            width: 100%;
-            height: 100%;
+            width: 150%; /* Increase iframe width to zoom */
+            height: 200%; /* Increase iframe height to zoom */
+            transform: scale(1.5); /* Scale for zoom effect */
+            transform-origin: center top; /* Zoom starting from the top center */
             border: none;
         }
     </style>
