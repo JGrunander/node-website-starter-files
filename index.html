@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="600;url=index.html">
-    <title>Sample Site</title>
+    <title>Stylish Clock with Date</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"> <!-- Added a stylish font -->
+    
     <style>
         body {
             background: url(assets/Bildspel_Idrotten_Vinterdag.gif) no-repeat center center fixed;
@@ -16,32 +18,55 @@
             background-size: cover;
             height: 100%;
             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif; /* Applied the new font */
+            color: white;
         }
 
-        p {
-            color: Aqua;
+        #clock-container {
             text-align: center;
-            font-size: 3.8em;
-            font-weight: bolder;
-            margin-top: 1.5%;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Adds a translucent background */
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        #date {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        #time {
+            font-size: 3.5em;
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
-    <p id="p1"></p>
+    <div id="clock-container">
+        <div id="date"></div>
+        <div id="time"></div>
+    </div>
 
     <script>
-        function clockuppdate() {
+        function updateClock() {
             var date = new Date();
-            var dateSwedish = new Intl.DateTimeFormat('sv-SV').format(date);
+
+            // Format the date for Swedish locale
+            var dateSwedish = new Intl.DateTimeFormat('sv-SV', { dateStyle: 'full' }).format(date);
+
+            // Format the time for Swedish locale
             var timeSwedish = new Intl.DateTimeFormat('sv-SV', { timeStyle: 'medium' }).format(date);
-            document.getElementById("p1").innerHTML = dateSwedish + " | " + timeSwedish;
+
+            // Display the formatted date and time
+            document.getElementById("date").innerHTML = dateSwedish;
+            document.getElementById("time").innerHTML = timeSwedish;
         }
-        setInterval(clockuppdate, 1000);
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
     </script>
 </body>
 
