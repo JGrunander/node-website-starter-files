@@ -43,13 +43,12 @@
         }
 
         iframe {
-            width: 125%;
-            height: 125%;
-            transform: scale(1.25);
+            width: 150%;
+            height: 200%;
+            transform: scale(1.5);
             transform-origin: center top;
             border: none;
         }
-
     </style>
 </head>
 
@@ -82,11 +81,12 @@
 
         setInterval(updateClock, 1000);
 
-        // JavaScript to hide all links in the iframe
+        // JavaScript to zoom in on the iframe and show Friday's food above the clock and date
         var iframe = document.getElementById("myIframe");
 
         iframe.onload = function() {
             var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            // Attempting to hide any blue links (this part might not work for cross-origin content)
             var links = iframeDocument.getElementsByTagName("a");
             
             for (var i = 0; i < links.length; i++) {
