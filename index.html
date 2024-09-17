@@ -45,9 +45,19 @@
         iframe {
             width: 125%;
             height: 125%;
-            transform: scale(1.25); /* Zoom to 125% */
-            transform-origin: center top; /* Focus the zoom on the top-center */
+            transform: scale(1.25);
+            transform-origin: center top;
             border: none;
+        }
+
+        /* Döljer all blå text (normalt länkar) */
+        a {
+            display: none;
+        }
+
+        /* Döljer specifika element med blå text om de har en klass */
+        .unwanted-text {
+            display: none;
         }
     </style>
 </head>
