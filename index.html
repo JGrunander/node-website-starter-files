@@ -2,14 +2,6 @@
 <html lang="en">
 
 <head>
-    <title>HTML Backgorund Color</title>
-<body style="
-  background: url(assets/Bildspel_Idrotten_Vinterdag.gif) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  ">
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="600;url=index.html">
     <title>Sample Site</title>
@@ -17,32 +9,39 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <style>
         body {
-        height: 80%;
+            background: url(assets/Bildspel_Idrotten_Vinterdag.gif) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100%;
+            margin: 0;
+        }
+
+        p {
+            color: Aqua;
+            text-align: center;
+            font-size: 3.8em;
+            font-weight: bolder;
+            margin-top: 1.5%;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
-   <p id="p1" style="
-   color: Aqua;
-   text-align: center;
-   font-size: 3.8em;
-   font-weight:bolder;
-   margin-top: 1,5%;
-   position: fixed;
-   bottom: 0;
-   width: 100%;"
+    <p id="p1"></p>
 
-   ></p>
-    
     <script>
-        function clockuppdate() { 
+        function clockuppdate() {
             var date = new Date();
             var dateSwedish = new Intl.DateTimeFormat('sv-SV').format(date);
-          var timeSwedish = new Intl.DateTimeFormat('sv-SV', {timeStyle: 'medium'}).format(date);
-          document.getElementById("p1").innerHTML = dateSwedish + " | " + timeSwedish;  
-            }
-        setInterval(clockuppdate,1000)
+            var timeSwedish = new Intl.DateTimeFormat('sv-SV', { timeStyle: 'medium' }).format(date);
+            document.getElementById("p1").innerHTML = dateSwedish + " | " + timeSwedish;
+        }
+        setInterval(clockuppdate, 1000);
     </script>
 </body>
 
