@@ -50,21 +50,12 @@
             border: none;
         }
 
-        /* Döljer all blå text (normalt länkar) */
-        a {
-            display: none;
-        }
-
-        /* Döljer specifika element med blå text om de har en klass */
-        .unwanted-text {
-            display: none;
-        }
     </style>
 </head>
 
 <body>
     <div id="iframeContainer">
-        <iframe src="https://skolmaten.se/alstensskolan/" title="Skolmatsmeny för Ålstensskolan"></iframe>
+        <iframe id="myIframe" src="https://skolmaten.se/alstensskolan/" title="Skolmatsmeny för Ålstensskolan"></iframe>
     </div>
 
     <div id="clock-container">
@@ -90,6 +81,18 @@
         }
 
         setInterval(updateClock, 1000);
+
+        // JavaScript to hide all links in the iframe
+        var iframe = document.getElementById("myIframe");
+
+        iframe.onload = function() {
+            var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            var links = iframeDocument.getElementsByTagName("a");
+            
+            for (var i = 0; i < links.length; i++) {
+                links[i].style.display = "none";
+            }
+        };
     </script>
 </body>
 
