@@ -22,9 +22,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white; /* Changed text color to white */
+            color: white;
             font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px white; /* White glow */
+            text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px white;
+            z-index: 1000;
         }
 
         #date-time {
@@ -37,10 +38,10 @@
             height: 200px;
             background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Clock_Classic.png/240px-Clock_Classic.png') no-repeat center center;
             background-size: contain;
+            margin-right: 20px;
         }
 
         #iframeContainer {
-            display: none;
             width: 100%;
             height: 500px;
             margin-top: 50px;
@@ -89,17 +90,6 @@
         // Update the clock every second
         setInterval(updateClock, 1000);
 
-        // Show the iframe for 30 seconds after 10 seconds of GIF
-        setTimeout(function() {
-            document.body.style.background = '';
-            document.getElementById('iframeContainer').style.display = 'block';
-        }, 10000); // Shows the iframe after 10 seconds
-
-        // Revert to original background after 30 seconds
-        setTimeout(function() {
-            document.getElementById('iframeContainer').style.display = 'none';
-            document.body.style.background = "url('assets/Bildspel_Idrotten_Vinterdag.gif') no-repeat center center fixed";
-        }, 40000); // Hides the iframe after 30 seconds
     </script>
 </body>
 
