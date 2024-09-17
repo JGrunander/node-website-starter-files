@@ -3,13 +3,40 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Skolmatsmeny och GIF</title>
+    <title>Klassisk Urtavla och Digital Klocka</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
             background: url('assets/Bildspel_Idrotten_Vinterdag.gif') no-repeat center center fixed;
             background-size: cover;
+            margin: 0;
+            color: white;
+        }
+
+        #clock-container {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ff073a; /* Neon red color for date and time */
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 5px #ff073a, 0 0 10px #ff073a, 0 0 15px #ff073a, 0 0 20px #ff073a;
+        }
+
+        #date-time {
+            font-size: 2em;
+            margin-left: 20px;
+        }
+
+        #clock-face {
+            width: 200px;
+            height: 200px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Clock_Classic.png/240px-Clock_Classic.png') no-repeat center center;
+            background-size: contain;
         }
 
         #iframeContainer {
@@ -32,7 +59,36 @@
         <iframe src="https://skolmaten.se/alstensskolan/" title="Skolmatsmeny för Ålstensskolan"></iframe>
     </div>
 
+    <div id="clock-container">
+        <div id="clock-face"></div>
+        <div id="date-time">
+            <div id="date"></div>
+            <div id="time"></div>
+        </div>
+    </div>
+
     <script>
+        function updateClock() {
+            var date = new Date();
+
+            // Format the date for Swedish locale
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var dateSwedish = new Intl.DateTimeFormat('sv-SV', options).format(date);
+
+            // Capitalize the first letter of the weekday
+            dateSwedish = dateSwedish.charAt(0).toUpperCase() + dateSwedish.slice(1);
+
+            // Format the time for Swedish locale
+            var timeSwedish = new Intl.DateTimeFormat('sv-SV', { timeStyle: 'medium' }).format(date);
+
+            // Display the formatted date and time
+            document.getElementById("date").innerHTML = dateSwedish;
+            document.getElementById("time").innerHTML = timeSwedish;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+
         // Show the iframe for 30 seconds after 10 seconds of GIF
         setTimeout(function() {
             document.body.style.background = '';
