@@ -34,13 +34,14 @@
         }
 
         #date {
-            font-size: 2.5em;
+            font-size: 2.8em;
+            font-weight: bolder; /* Thicker font for the date */
             margin-bottom: 0.5em;
         }
 
         #time {
-            font-size: 3.5em;
-            font-weight: bold;
+            font-size: 3.8em;
+            font-weight: bolder; /* Thicker font for the time */
         }
     </style>
 </head>
@@ -56,7 +57,11 @@
             var date = new Date();
 
             // Format the date for Swedish locale
-            var dateSwedish = new Intl.DateTimeFormat('sv-SV', { dateStyle: 'full' }).format(date);
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var dateSwedish = new Intl.DateTimeFormat('sv-SV', options).format(date);
+
+            // Capitalize the first letter of the weekday
+            dateSwedish = dateSwedish.charAt(0).toUpperCase() + dateSwedish.slice(1);
 
             // Format the time for Swedish locale
             var timeSwedish = new Intl.DateTimeFormat('sv-SV', { timeStyle: 'medium' }).format(date);
