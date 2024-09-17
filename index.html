@@ -7,18 +7,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
-            text-align: center;
             font-family: Arial, sans-serif;
-            background: url('assets/Bildspel_Idrotten_Vinterdag.gif') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            color: white;
-            transition: background-color 0.5s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background: white;
+            color: white; /* Gör all text vit som standard */
+            text-align: center;
+        }
+
+        /* Gör specifika texter synliga i svart */
+        .meal, .date, .time {
+            color: black; /* Svart för mat, datum och tid */
+        }
+
+        /* Grön text */
+        .green {
+            color: green;
+        }
+
+        /* Rosa text */
+        .pink {
+            color: pink;
         }
 
         #clock-container {
@@ -33,7 +40,7 @@
 
         #date-time {
             font-size: 3em;
-            color: black;
+            color: black; /* Svart text för tid och datum */
             margin-left: 20px;
         }
 
@@ -53,7 +60,6 @@
             width: 100vw;
             height: 100vh;
             margin-top: 0;
-            display: none;
         }
 
         iframe {
@@ -72,8 +78,8 @@
     <div id="clock-container">
         <div id="clock-face"></div>
         <div id="date-time">
-            <div id="date"></div>
-            <div id="time"></div>
+            <div id="date" class="date"></div>
+            <div id="time" class="time"></div>
         </div>
     </div>
 
@@ -93,13 +99,6 @@
         }
 
         setInterval(updateClock, 1000);
-
-        function showIframe() {
-            document.body.style.background = "white";
-            document.getElementById('iframeContainer').style.display = 'flex';
-        }
-
-        setTimeout(showIframe, 5000);
     </script>
 </body>
 
