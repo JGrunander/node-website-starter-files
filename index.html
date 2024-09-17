@@ -7,7 +7,7 @@
     <title>Stylish Clock with Date</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"> <!-- Added Concert One Regular 400 font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"> <!-- Added Orbitron font -->
 
     <style>
         body {
@@ -27,13 +27,15 @@
             bottom: 0;
             width: 100%;
             left: 0;
-            color: black; /* Changed the color to black */
-            font-family: 'Concert One', cursive; /* Changed font to Concert One Regular 400 */
+            color: #ff073a; /* Neon red color for date and time */
+            font-family: 'Orbitron', sans-serif; /* Changed font back to Orbitron */
+            text-shadow: 0 0 5px #ff073a, 0 0 10px #ff073a, 0 0 15px #ff073a, 0 0 20px #ff073a; /* Neon glow effect */
         }
 
         #date {
             font-size: 3.5em; /* Increased font size for the date */
             margin-bottom: 0.5em;
+            text-transform: uppercase; /* Transform all letters to uppercase */
         }
 
         #time {
