@@ -37,17 +37,17 @@
             justify-content: center;
             align-items: center;
             background-color: white;
-            width: 100vw;
-            height: 100vh;
+            width: 150vw;
+            height: 150vh;
             overflow: hidden;
             position: relative; /* För att positionera ramen */
+            transform: scale(1.5); /* Anpassa till 150% zoom */
+            transform-origin: center 5%; /* Fokusera på måndag */
         }
 
         iframe {
-            width: 150%; /* Zoomad bredd */
-            height: 150%; /* Zoomad höjd */
-            transform: scale(1.5); /* Zooma in till 150% */
-            transform-origin: center 5%; /* Flytta fokus högst upp för att visa måndag */
+            width: 100%; /* Full bredd */
+            height: 100%; /* Full höjd */
             border: none;
         }
 
@@ -64,11 +64,11 @@
         /* Stort A */
         #bigA {
             position: absolute;
-            left: 10px;
-            top: 40px; /* Anpassat så att A är i höjd med "Måndag" */
-            font-size: 120px; /* Storleken på det stora A */
+            left: -30px; /* Anpassat för att matcha 150% zoom */
+            top: 60px; /* Anpassat för att vara i linje med "Måndag" */
+            font-size: 180px; /* Storleken på det stora A, anpassat till zoom */
             font-weight: bold;
-            color: black;
+            color: red; /* Ändrat till rött */
             z-index: 10; /* Över menyn */
         }
 
@@ -76,11 +76,10 @@
         #menuContainer {
             position: absolute;
             top: 10px;
-            width: 95%;
-            height: 90%;
-            border: 5px solid black; /* Snygg, svart ram */
-            padding: 20px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Lägger till skugga för att göra ramen snyggare */
+            width: 100%;
+            height: 100%;
+            border: 10px solid black; /* Tjockare ram för att matcha zoomad storlek */
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Lägger till skugga för att göra ramen snyggare */
             z-index: 5; /* Under det stora A */
         }
     </style>
