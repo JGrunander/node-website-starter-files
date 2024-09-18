@@ -9,129 +9,72 @@
         body {
             font-family: Arial, sans-serif;
             background: white;
-            color: white;
+            color: black;
             margin: 0;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center; /* Centrera innehåll vertikalt */
+            align-items: center; /* Centrera innehåll horisontellt */
+            transform: scale(1.5); /* Zoom på 150% */
+            transform-origin: center; /* Centrera på mitten av sidan */
         }
 
-        #clock-container {
-            position: fixed;
-            bottom: 0px; /* Datum och tid längst ner */
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Orbitron', sans-serif;
-            color: black;
-        }
-
-        #date-time {
-            font-size: 1.5em; /* Mindre datum och tid */
-        }
-
-        #iframeContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            width: 150vw;
-            height: 150vh;
-            overflow: hidden;
-            position: relative; /* För att positionera ramen */
-            transform: scale(1.5); /* Anpassa till 150% zoom */
-            transform-origin: center 5%; /* Fokusera på måndag */
-        }
-
-        iframe {
-            width: 100%; /* Full bredd */
-            height: 100%; /* Full höjd */
-            border: none;
-        }
-
-        /* Overlay to cover bottom part of the iframe */
-        #overlay {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 50px; /* Justera höjden för att täcka länkarna */
-            background-color: white; /* Färgen på överlägget, samma som bakgrunden */
-            z-index: 10; /* Se till att den ligger ovanpå iframen */
+        /* Ram runt menyn */
+        #menuContainer {
+            width: 50%;
+            border: 5px solid black; /* Snygg ram runt menyn */
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Skugga för snyggare ram */
+            position: relative;
         }
 
         /* Stort Å */
         #bigA {
             position: absolute;
-            left: -30px; /* Anpassat för att matcha 150% zoom */
-            top: 60px; /* Anpassat för att vara i linje med "Måndag" */
-            font-size: 180px; /* Storleken på det stora Å, anpassat till zoom */
+            top: -100px; /* Justera så det sitter i höjd med menyn */
+            left: -70px;
+            font-size: 200px;
             font-weight: bold;
-            color: red; /* Röd färg */
-            z-index: 10; /* Över menyn */
-            text-shadow: 2px 2px 5px pink, -2px -2px 5px pink; /* Blommig effekt med skuggor */
+            color: red;
+            z-index: 10; /* Så att det ligger över menyn */
         }
 
-        /* Ram runt menyn */
-        #menuContainer {
-            position: absolute;
-            top: 10px;
-            width: 100%;
-            height: 100%;
-            border: 10px solid black; /* Tjockare ram för att matcha zoomad storlek */
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Lägger till skugga för att göra ramen snyggare */
-            z-index: 5; /* Under det stora Å */
-        }
-
-        /* Dekorativa blommor runt Å */
+        /* Blommor runt Å */
         .flower {
             position: absolute;
-            width: 40px;
-            height: 40px;
-            background-color: pink; /* Blommornas färg */
-            border-radius: 50%;
-            z-index: 10;
-        }
-
-        .flower:before, .flower:after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background-color: pink;
             border-radius: 50%;
+            z-index: 5; /* Blommor under Å */
         }
 
-        .flower:before {
-            top: -30px;
-            left: 10px;
-        }
-
-        .flower:after {
-            top: 10px;
-            left: -30px;
-        }
-
-        /* Placering av blommor runt Å */
+        /* Placering av blommorna */
         #flower1 {
-            left: 20px;
-            top: 50px;
+            top: -80px;
+            left: -40px;
         }
 
         #flower2 {
-            left: -60px;
-            top: 150px;
+            top: -100px;
+            left: 50px;
         }
 
         #flower3 {
-            left: 50px;
-            top: 200px;
+            top: 30px;
+            left: -100px;
+        }
+
+        #flower4 {
+            top: 30px;
+            left: 100px;
         }
     </style>
 </head>
 
 <body>
+
     <!-- Stort Å -->
     <div id="bigA">Å</div>
 
@@ -139,42 +82,21 @@
     <div class="flower" id="flower1"></div>
     <div class="flower" id="flower2"></div>
     <div class="flower" id="flower3"></div>
+    <div class="flower" id="flower4"></div>
 
     <!-- Ram runt menyn -->
     <div id="menuContainer">
-        <div id="iframeContainer">
-            <iframe id="myIframe" src="https://skolmaten.se/alstensskolan/" title="Skolmatsmeny för Ålstensskolan"></iframe>
-        </div>
+        <h1>Ålstensskolan</h1>
+        <h2>Vecka 38</h2>
+        <ul>
+            <li><strong>Måndag</strong> (2024-09-16): Kyckling/Kalkonsås, Ris | Oumphsås, Ris</li>
+            <li><strong>Tisdag</strong> (2024-09-17): Panerad Fisk, Potatis, Dillsås | Gratinerade Rödbetor, Potatis, Dillsås</li>
+            <li><strong>Onsdag</strong> (2024-09-18): Linsbolognes, Pasta Penne | Grönsaksbolognes, Pasta Penne</li>
+            <li><strong>Torsdag</strong> (2024-09-19): Falafelburgare, Bulgur, Sweet Chili | Vegoburgare, Bulgur, Sweet Chili</li>
+            <li><strong>Fredag</strong> (2024-09-20): Hönspannbiff, Potatis, Skysås | Vegbiff, Potatis, Skysås</li>
+        </ul>
     </div>
 
-    <!-- Overlay för att dölja blå länkar -->
-    <div id="overlay"></div>
-
-    <!-- Datum och tid -->
-    <div id="clock-container">
-        <div id="date-time">
-            <div id="date"></div>
-            <div id="time"></div>
-        </div>
-    </div>
-
-    <script>
-        function updateClock() {
-            var date = new Date();
-
-            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            var dateSwedish = new Intl.DateTimeFormat('sv-SV', options).format(date);
-
-            dateSwedish = dateSwedish.charAt(0).toUpperCase() + dateSwedish.slice(1);
-
-            var timeSwedish = new Intl.DateTimeFormat('sv-SV', { timeStyle: 'medium' }).format(date);
-
-            document.getElementById("date").innerHTML = dateSwedish;
-            document.getElementById("time").innerHTML = timeSwedish;
-        }
-
-        setInterval(updateClock, 1000);
-    </script>
 </body>
 
 </html>
