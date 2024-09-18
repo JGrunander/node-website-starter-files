@@ -61,15 +61,16 @@
             z-index: 10; /* Se till att den ligger ovanpå iframen */
         }
 
-        /* Stort A */
+        /* Stort Å */
         #bigA {
             position: absolute;
             left: -30px; /* Anpassat för att matcha 150% zoom */
             top: 60px; /* Anpassat för att vara i linje med "Måndag" */
-            font-size: 180px; /* Storleken på det stora A, anpassat till zoom */
+            font-size: 180px; /* Storleken på det stora Å, anpassat till zoom */
             font-weight: bold;
-            color: red; /* Ändrat till rött */
+            color: red; /* Röd färg */
             z-index: 10; /* Över menyn */
+            text-shadow: 2px 2px 5px pink, -2px -2px 5px pink; /* Blommig effekt med skuggor */
         }
 
         /* Ram runt menyn */
@@ -80,14 +81,64 @@
             height: 100%;
             border: 10px solid black; /* Tjockare ram för att matcha zoomad storlek */
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Lägger till skugga för att göra ramen snyggare */
-            z-index: 5; /* Under det stora A */
+            z-index: 5; /* Under det stora Å */
+        }
+
+        /* Dekorativa blommor runt Å */
+        .flower {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: pink; /* Blommornas färg */
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .flower:before, .flower:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: pink;
+            border-radius: 50%;
+        }
+
+        .flower:before {
+            top: -30px;
+            left: 10px;
+        }
+
+        .flower:after {
+            top: 10px;
+            left: -30px;
+        }
+
+        /* Placering av blommor runt Å */
+        #flower1 {
+            left: 20px;
+            top: 50px;
+        }
+
+        #flower2 {
+            left: -60px;
+            top: 150px;
+        }
+
+        #flower3 {
+            left: 50px;
+            top: 200px;
         }
     </style>
 </head>
 
 <body>
-    <!-- Stort A -->
-    <div id="bigA">A</div>
+    <!-- Stort Å -->
+    <div id="bigA">Å</div>
+
+    <!-- Blommor runt Å -->
+    <div class="flower" id="flower1"></div>
+    <div class="flower" id="flower2"></div>
+    <div class="flower" id="flower3"></div>
 
     <!-- Ram runt menyn -->
     <div id="menuContainer">
