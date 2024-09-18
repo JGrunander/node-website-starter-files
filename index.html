@@ -40,6 +40,7 @@
             width: 100vw;
             height: 100vh;
             overflow: hidden;
+            position: relative; /* För att positionera ramen */
         }
 
         iframe {
@@ -59,17 +60,47 @@
             background-color: white; /* Färgen på överlägget, samma som bakgrunden */
             z-index: 10; /* Se till att den ligger ovanpå iframen */
         }
+
+        /* Stort A */
+        #bigA {
+            position: absolute;
+            left: 10px;
+            top: 40px; /* Anpassat så att A är i höjd med "Måndag" */
+            font-size: 120px; /* Storleken på det stora A */
+            font-weight: bold;
+            color: black;
+            z-index: 10; /* Över menyn */
+        }
+
+        /* Ram runt menyn */
+        #menuContainer {
+            position: absolute;
+            top: 10px;
+            width: 95%;
+            height: 90%;
+            border: 5px solid black; /* Snygg, svart ram */
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Lägger till skugga för att göra ramen snyggare */
+            z-index: 5; /* Under det stora A */
+        }
     </style>
 </head>
 
 <body>
-    <div id="iframeContainer">
-        <iframe id="myIframe" src="https://skolmaten.se/alstensskolan/" title="Skolmatsmeny för Ålstensskolan"></iframe>
+    <!-- Stort A -->
+    <div id="bigA">A</div>
+
+    <!-- Ram runt menyn -->
+    <div id="menuContainer">
+        <div id="iframeContainer">
+            <iframe id="myIframe" src="https://skolmaten.se/alstensskolan/" title="Skolmatsmeny för Ålstensskolan"></iframe>
+        </div>
     </div>
 
-    <!-- Overlay to cover potential blue links at the bottom -->
+    <!-- Overlay för att dölja blå länkar -->
     <div id="overlay"></div>
 
+    <!-- Datum och tid -->
     <div id="clock-container">
         <div id="date-time">
             <div id="date"></div>
