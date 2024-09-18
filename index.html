@@ -49,6 +49,16 @@
             transform-origin: center 5%; /* Flytta fokus högst upp för att visa måndag */
             border: none;
         }
+
+        /* Overlay to cover bottom part of the iframe */
+        #overlay {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 50px; /* Justera höjden för att täcka länkarna */
+            background-color: white; /* Färgen på överlägget, samma som bakgrunden */
+            z-index: 10; /* Se till att den ligger ovanpå iframen */
+        }
     </style>
 </head>
 
@@ -56,6 +66,9 @@
     <div id="iframeContainer">
         <iframe id="myIframe" src="https://skolmaten.se/alstensskolan/" title="Skolmatsmeny för Ålstensskolan"></iframe>
     </div>
+
+    <!-- Overlay to cover potential blue links at the bottom -->
+    <div id="overlay"></div>
 
     <div id="clock-container">
         <div id="date-time">
