@@ -22,11 +22,19 @@
 
         /* Ram runt menyn */
         #menuContainer {
-            width: 50%;
+            width: 70%;
+            height: 600px; /* Justera höjden för menyn */
             border: 5px solid black; /* Snygg ram runt menyn */
             padding: 20px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Skugga för snyggare ram */
             position: relative;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Ta bort ramen runt iframe */
         }
 
         /* Stort Å */
@@ -86,15 +94,8 @@
 
     <!-- Ram runt menyn -->
     <div id="menuContainer">
-        <h1>Ålstensskolan</h1>
-        <h2>Vecka 38</h2>
-        <ul>
-            <li><strong>Måndag</strong> (2024-09-16): Kyckling/Kalkonsås, Ris | Oumphsås, Ris</li>
-            <li><strong>Tisdag</strong> (2024-09-17): Panerad Fisk, Potatis, Dillsås | Gratinerade Rödbetor, Potatis, Dillsås</li>
-            <li><strong>Onsdag</strong> (2024-09-18): Linsbolognes, Pasta Penne | Grönsaksbolognes, Pasta Penne</li>
-            <li><strong>Torsdag</strong> (2024-09-19): Falafelburgare, Bulgur, Sweet Chili | Vegoburgare, Bulgur, Sweet Chili</li>
-            <li><strong>Fredag</strong> (2024-09-20): Hönspannbiff, Potatis, Skysås | Vegbiff, Potatis, Skysås</li>
-        </ul>
+        <!-- Inbäddad extern meny från skolmaten.se -->
+        <iframe src="https://skolmaten.se/alstensskolan/" title="Skolmatsmeny för Ålstensskolan"></iframe>
     </div>
 
 </body>
