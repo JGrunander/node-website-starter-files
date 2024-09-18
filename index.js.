@@ -1,0 +1,12 @@
+const express = require('express');
+const path = require('path');
+const app = express();
+
+// Servera statiska filer från mappen "public"
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Starta servern
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servern körs på port ${PORT}`);
+});
