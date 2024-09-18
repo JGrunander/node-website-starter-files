@@ -78,6 +78,23 @@
             top: 30px;
             left: 100px;
         }
+
+        /* Klocka och datum */
+        #clock-container {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5em;
+            color: black;
+        }
+
+        #time {
+            margin-right: 20px;
+        }
     </style>
 </head>
 
@@ -97,6 +114,34 @@
         <!-- Inbäddad extern meny från skolmaten.se -->
         <iframe src="https://skolmaten.se/alstensskolan/" title="Skolmatsmeny för Ålstensskolan"></iframe>
     </div>
+
+    <!-- Klocka och datum -->
+    <div id="clock-container">
+        <div id="time"></div>
+        <div id="date"></div>
+    </div>
+
+    <!-- JavaScript för att uppdatera klockan och datumet -->
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString('sv-SE', options);
+
+            document.getElementById('time').textContent = timeString;
+            document.getElementById('date').textContent = dateString;
+        }
+
+        // Uppdatera klockan varje sekund
+        setInterval(updateClock, 1000);
+        // Kör direkt när sidan laddas
+        updateClock();
+    </script>
 
 </body>
 
