@@ -22,13 +22,13 @@
 
         /* Ram runt menyn */
         #menuContainer {
-            width: 70%;
-            height: 600px; /* Justera höjden för menyn */
+            width: 50%;
             border: 5px solid black; /* Snygg ram runt menyn */
             padding: 20px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Skugga för snyggare ram */
             position: relative;
             overflow: hidden;
+            margin-bottom: 50px; /* Utrymme under menyn */
         }
 
         iframe {
@@ -81,19 +81,21 @@
 
         /* Klocka och datum */
         #clock-container {
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
+            position: relative; /* Flyttad så den är under menyn */
+            margin-top: 20px; /* Utrymme under maten */
             display: flex;
             justify-content: center;
-            align-items: center;
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5em;
             color: black;
         }
 
-        #time {
-            margin-right: 20px;
+        /* För att centrera hela sidan, även med zoom */
+        html, body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -115,7 +117,7 @@
         <iframe src="https://skolmaten.se/alstensskolan/" title="Skolmatsmeny för Ålstensskolan"></iframe>
     </div>
 
-    <!-- Klocka och datum -->
+    <!-- Klocka och datum under menyn -->
     <div id="clock-container">
         <div id="time"></div>
         <div id="date"></div>
